@@ -1,0 +1,54 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "oden:custom_dummy",
+            "is_summonable": true,
+            "is_spawnable": false
+        },
+        "components": {
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": false,
+                "push_towards_closest_space": false
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:push_through": {
+                "value": 0.0
+            },
+            "minecraft:nameable": {
+                "always_show": true
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:custom_hit_test": {
+                "hitboxes": [
+                    {
+                        "pivot": [
+                            0,
+                            10000,
+                            0
+                        ],
+                        "width": 0,
+                        "height": 0
+                    }
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            },
+            "minecraft:water_movement": {
+                "drag_factor": 0.0
+            },
+            "minecraft:immobile": {}
+        }
+    }
+}
