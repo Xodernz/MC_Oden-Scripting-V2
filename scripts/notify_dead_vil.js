@@ -32,5 +32,5 @@ export function notifDeadVillager (damageSource, deadEntity) {
 
     const { x, y, z } = deadEntity.location
     const loc = `(${Math.round(x)}, ${Math.round(y)}, ${Math.round(z)})`
-    world.sendMessage(`Villager dead by §e${killer ? killer : cause}§r in §e${vilDimens}§r at §e${loc}`)
+    world.sendMessage(`§cVillager dead by §e${killer ? killer : cause}§c in §e${vilDimens}§c at §e${loc}`)
 }
