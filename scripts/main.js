@@ -8,6 +8,7 @@ import { killPoint } from "./kill_point";
 import { notifDeadVillager } from "./notify_dead_vil";
 import { plrDeadMark } from "./player_dead_marker";
 import { clearDummy } from "./reset_dummy";
+import { messageGet, messagePost } from "./discord_relay";
 
 //Chat send Before Event
 world.beforeEvents.chatSend.subscribe((evnt) => {
@@ -17,6 +18,7 @@ world.beforeEvents.chatSend.subscribe((evnt) => {
         return
     }
     const rankCht = chatRank(message, sender)
+    messagePost(sender, message, rankCht?.replace(/§[A-Za-z0-9]/gi, ""))
     if (rankCht !== undefined) {
         evnt.cancel = true
     }
@@ -42,7 +44,8 @@ system.runInterval(() => {
         assignRanktoPlayer(n)
         afkDetector(n)
     })
-}, 40)
+    messageGet()
+}, 100)
 
 //Loop per tick (20 TPS)
 system.runInterval(() => {

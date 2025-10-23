@@ -37,6 +37,10 @@ function deadMarker(posisi, dimensi, deadEntity) {
 
     let tick = 0 //menit
     const updateNameTag = system.runInterval(() => {
+        if (!entity.isValid) {
+            system.clearRun(updateNameTag)
+            return
+        }
         tick++
         if (tick >= 14) {
             entity.remove()
