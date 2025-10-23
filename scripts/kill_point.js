@@ -87,7 +87,7 @@ const pointEachEntity = {
     "minecraft:polar_bear": 0,
     "minecraft:pufferfish": 0,
     "minecraft:rabbit": 0,
-    "minecraft:ravager": 8,
+    "minecraft:ravager": 7,
     "minecraft:salmon": 0,
     "minecraft:sheep": 0,
     "minecraft:shield": 0,
