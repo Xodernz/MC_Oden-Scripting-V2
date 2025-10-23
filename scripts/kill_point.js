@@ -50,7 +50,7 @@ const pointEachEntity = {
     "minecraft:fishing_hook": 0,
     "minecraft:fox": 0,
     "minecraft:frog": 0,
-    "minecraft:ghast": 6,
+    "minecraft:ghast": 5,
     "minecraft:glow_squid": 0,
     "minecraft:goat": 0,
     "minecraft:guardian": 5,
