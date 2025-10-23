@@ -28,7 +28,7 @@ const pointEachEntity = {
     "minecraft:copper_golem": 0,
     "minecraft:cow": 0,
     "minecraft:creaking": 3,
-    "minecraft:creeper": 5,
+    "minecraft:creeper": 4,
     "minecraft:dolphin": 0,
     "minecraft:donkey": 0,
     "minecraft:dragon_fireball": 0,
