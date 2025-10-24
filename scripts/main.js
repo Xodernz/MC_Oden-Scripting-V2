@@ -42,7 +42,7 @@ system.runInterval(() => {
         assignRanktoPlayer(n)
         afkDetector(n)
     })
-}, 40)
+}, 100)
 
 //Loop per tick (20 TPS)
 system.runInterval(() => {

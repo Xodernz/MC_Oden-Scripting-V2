@@ -1,6 +1,6 @@
 import { Player, world } from "@minecraft/server"
 
-const afkInterval = 20/40 * 120
+const afkInterval = 20/100 * 120
 const afkRadius = 2
 
 const data = new Map()
