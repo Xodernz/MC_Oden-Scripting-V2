@@ -41,6 +41,7 @@ system.runInterval(() => {
     world.getAllPlayers().forEach(n => {
         assignRanktoPlayer(n)
         afkDetector(n)
+        // tes
     })
 }, 100)
 
