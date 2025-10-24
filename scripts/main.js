@@ -36,7 +36,7 @@ world.afterEvents.worldLoad.subscribe(() => {
     clearDummy()
 })
 
-//Loop /40
+//Loop /100
 system.runInterval(() => {
     world.getAllPlayers().forEach(n => {
         assignRanktoPlayer(n)
