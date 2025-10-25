@@ -31,7 +31,7 @@ world.afterEvents.entityDie.subscribe((ev) => {
     plrDeadMark(damageSource, deadEntity)
 })
 
-// on RELOAD / WORLD LOAD
+// on RELOAD
 world.afterEvents.worldLoad.subscribe(() => {
     clearDummy()
 })
