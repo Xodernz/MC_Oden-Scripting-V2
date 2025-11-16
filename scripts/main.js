@@ -43,5 +43,3 @@ system.runInterval(() => {
 system.runInterval(() => {
     TPScounter()
 })
-
-// tes sync
