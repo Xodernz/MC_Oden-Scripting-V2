@@ -15,9 +15,7 @@ world.beforeEvents.chatSend.subscribe(async (evnt) => {
     evnt.cancel = true
     const {message, sender} = evnt
     if (await isCustomCommand(message, sender)) return
-
     const rankCht = chatRank(message, sender)
-
     await messagePost(sender, message, rankCht?.replace(/§[A-Za-z0-9]/gi, ""))
 })
 
@@ -61,3 +59,5 @@ system.runInterval(async () => {
 system.runInterval(() => {
     TPScounter()
 })
+
+// tes sync
