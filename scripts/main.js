@@ -59,4 +59,3 @@ system.runInterval(async () => {
 system.runInterval(() => {
     TPScounter()
 })
-//biji
