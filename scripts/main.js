@@ -12,14 +12,9 @@ import { clearDummy } from "./reset_dummy";
 //Chat send Before Event
 world.beforeEvents.chatSend.subscribe((evnt) => {
     const {message, sender} = evnt
-    if (isCustomCommand(message, sender)) {
-        evnt.cancel = true
-        return
-    }
+    evnt.cancel = true
+    if (isCustomCommand(message, sender)) return
     const rankCht = chatRank(message, sender)
-    if (rankCht !== undefined) {
-        evnt.cancel = true
-    }
 })
 
 

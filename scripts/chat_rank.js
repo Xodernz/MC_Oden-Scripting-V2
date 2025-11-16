@@ -10,5 +10,8 @@ export function chatRank(message, sender) {
     if (senderRank) {
         world.sendMessage(`${senderRank}§r | <${sender.name}> ${message}`)
         return senderRank
-    } else return undefined
+    } else {
+        world.sendMessage(`<${sender.name}> ${message}`)
+        return undefined
+    }
 }
