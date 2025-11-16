@@ -8,20 +8,17 @@ import { killPoint } from "./kill_point";
 import { notifDeadVillager } from "./notify_dead_vil";
 import { plrDeadMark } from "./player_dead_marker";
 import { clearDummy } from "./reset_dummy";
-import { messageGet, messagePost } from "./discord_relay";
+import { messageGet, messagePost, plyrJoinAnnounce, plyrLeaveAnnounce, setServerID } from "./discord_relay";
 
 //Chat send Before Event
-world.beforeEvents.chatSend.subscribe((evnt) => {
+world.beforeEvents.chatSend.subscribe(async (evnt) => {
+    evnt.cancel = true
     const {message, sender} = evnt
-    if (isCustomCommand(message, sender)) {
-        evnt.cancel = true
-        return
-    }
+    if (await isCustomCommand(message, sender)) return
+
     const rankCht = chatRank(message, sender)
-    messagePost(sender, message, rankCht?.replace(/§[A-Za-z0-9]/gi, ""))
-    if (rankCht !== undefined) {
-        evnt.cancel = true
-    }
+
+    await messagePost(sender, message, rankCht?.replace(/§[A-Za-z0-9]/gi, ""))
 })
 
 
@@ -33,13 +30,26 @@ world.afterEvents.entityDie.subscribe((ev) => {
     plrDeadMark(damageSource, deadEntity)
 })
 
+// Player Join
+world.afterEvents.playerJoin.subscribe((ev) => {
+    const {playerName} = ev
+    plyrJoinAnnounce(playerName)
+})
+
+// Player Leave
+world.afterEvents.playerLeave.subscribe((ev) => {
+    const {playerName} = ev
+    plyrLeaveAnnounce(playerName)
+})
+
 // on RELOAD
 world.afterEvents.worldLoad.subscribe(() => {
     clearDummy()
+    setServerID()
 })
 
 //Loop /100
-system.runInterval(() => {
+system.runInterval(async () => {
     world.getAllPlayers().forEach(n => {
         assignRanktoPlayer(n)
         afkDetector(n)

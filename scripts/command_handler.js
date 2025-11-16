@@ -1,6 +1,7 @@
 import { Player } from "@minecraft/server";
 import { itemTransfer } from "./Custom Command/transfer_item";
 import { cekTPS } from "./Custom Command/TPS";
+import { linkDC } from "./Custom Command/link_discord";
 
 
 /**
@@ -35,10 +36,11 @@ export function commandHandler(input, prefix="!") {
  * @param {Player} sender 
  * @returns 
  */
-export function isCustomCommand(msg, sender) {
+export async function isCustomCommand(msg, sender) {
     const listCMD = [
         itemTransfer(msg, sender), //!tf
-        cekTPS(msg, sender) // !tps
+        cekTPS(msg, sender), // !tps
+        await linkDC(msg, sender)
     ]
     if (listCMD.some(n => n === true)) return true
     else return false
